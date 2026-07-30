@@ -1,9 +1,11 @@
 const { getHealthMessage } = require("../services");
 
+const { createSuccessResponse } = require("../../../shared/utils");
+
 function healthController(req, res) {
   const message = getHealthMessage();
 
-  res.send(message);
+  res.json(createSuccessResponse(message));
 }
 
 module.exports = {
