@@ -1,5 +1,9 @@
+const { fetchHealthMessage } = require("../repositories");
+
 function getHealthMessage() {
-  return "Synora Backend Running";
+  const message = fetchHealthMessage();
+
+  return message;
 }
 
 module.exports = {
