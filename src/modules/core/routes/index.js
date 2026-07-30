@@ -3,5 +3,8 @@ const router = express.Router();
 const { healthController } = require("../controllers");
 
 router.get("/", healthController);
+router.get("/error", (req, res, next) => {
+  next(new Error("Test Error"));
+});
 
 module.exports = router;
