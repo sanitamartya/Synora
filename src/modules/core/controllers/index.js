@@ -1,5 +1,9 @@
+const { getHealthMessage } = require("../services");
+
 function healthController(req, res) {
-  res.send("Synora Backend Running");
+  const message = getHealthMessage();
+
+  res.send(message);
 }
 
 module.exports = {
