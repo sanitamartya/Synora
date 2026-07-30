@@ -1,9 +1,7 @@
 const express = require("express");
-
 const router = express.Router();
+const { healthController } = require("../controllers");
 
-router.get("/", (req, res) => {
-  res.send("Synora Backend Running");
-});
+router.get("/", healthController);
 
 module.exports = router;
