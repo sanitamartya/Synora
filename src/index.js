@@ -6,6 +6,13 @@ const coreRoutes = require("./modules/core/routes");
 
 const errorHandler = require("./middleware/errorHandler");
 
+const { logInfo } = require("./shared/logger");
+
+app.use((req, res, next) => {
+  logInfo(`Incoming ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 app.use("/", coreRoutes);
 
 app.use("/api", coreRoutes);

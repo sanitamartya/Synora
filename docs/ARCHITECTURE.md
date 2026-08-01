@@ -32,6 +32,16 @@ Repository
 
 Response
 
+## Current Supported Routes
+
+GET /
+
+GET /api
+
+GET /api/incidents
+
+GET /api/incidents/:id
+
 ## Current Layers
 
 - Routes
