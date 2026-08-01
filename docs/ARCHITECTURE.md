@@ -3,7 +3,8 @@
 ## Current Request Flow
 
 Client
-→ Route
+→ / (Application Route)
+→ /api (API Entry Point)
 → Controller
 → Service
 → Repository
