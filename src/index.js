@@ -1,25 +1,16 @@
-const express = require("express");
+import express from "express";
 
 const app = express();
 
-const coreRoutes = require("./modules/core/routes");
+const PORT = 3000;
 
-const errorHandler = require("./middleware/errorHandler");
-
-const { logInfo } = require("./shared/logger");
-
-app.use((req, res, next) => {
-  logInfo(`Incoming ${req.method} ${req.originalUrl}`);
-  next();
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    success: true,
+    message: "Synora Backend Running",
+  });
 });
 
-app.use("/", coreRoutes);
-
-app.use("/api", coreRoutes);
-
-app.use(errorHandler);
-
-const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Synora is running on port ${PORT}`);
 });
