@@ -1,16 +1,13 @@
 import "dotenv/config";
 import express from "express";
 
+import routes from "./routes/index.js";
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  return res.status(200).json({
-    success: true,
-    message: "Synora Backend Running",
-  });
-});
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Synora is running on port ${PORT}`);
