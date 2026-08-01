@@ -3,12 +3,34 @@
 ## Current Request Flow
 
 Client
-→ / (Application Route)
-→ /api (API Entry Point)
-→ Controller
-→ Service
-→ Repository
-→ Response
+
+↓
+
+/ (Application Route)
+
+↓
+
+/api (API Entry Point)
+
+↓
+
+/api/incidents (Resource Route)
+
+↓
+
+Controller
+
+↓
+
+Service
+
+↓
+
+Repository
+
+↓
+
+Response
 
 ## Current Layers
 

@@ -11,6 +11,7 @@ Synora is a backend engineering project built to learn and implement professiona
 
 - Application Routes
 - API Entry Point
+- Resource Routes
 - Controllers
 - Services
 - Repositories
