@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --env-file=.env src/index.js",
-    "migrate": "node --env-file=.env src/database/migrations/migrate.js"
+    "migrate": "node --env-file=.env src/database/migrations/migrate.js",
+    "transaction": "node --env-file=.env src/database/transaction-demo.js"
   },
   "keywords": [],
   "author": "",
