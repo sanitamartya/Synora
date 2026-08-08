@@ -1,8 +1,9 @@
 import { Router } from "express";
 import { getHealth } from "../controllers/health.controller.js";
+import { asyncHandler } from "../shared/asyncHandler.js";
 
 const router = Router();
 
-router.get("/health", getHealth);
+router.get("/health", asyncHandler(getHealth));
 
 export default router;
