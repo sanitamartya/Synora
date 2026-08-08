@@ -1,4 +1,5 @@
 import pool from "../index.js";
+import NotFoundError from "../../errors/NotFoundError.js";
 
 class UserRepository {
   async create({ name, email }) {
@@ -29,12 +30,16 @@ class UserRepository {
   async findById(id) {
     const result = await pool.query(
       `
-      SELECT *
-      FROM users
-      WHERE id = $1;
-      `,
+    SELECT *
+    FROM users
+    WHERE id = $1;
+    `,
       [id],
     );
+
+    if (result.rows.length === 0) {
+      throw new NotFoundError("User not found");
+    }
 
     return result.rows[0];
   }
@@ -55,15 +60,19 @@ class UserRepository {
   async update(id, { name, email }) {
     const result = await pool.query(
       `
-      UPDATE users
-      SET
-        name = $1,
-        email = $2
-      WHERE id = $3
-      RETURNING *;
-      `,
+    UPDATE users
+    SET
+      name = $1,
+      email = $2
+    WHERE id = $3
+    RETURNING *;
+    `,
       [name, email, id],
     );
+
+    if (result.rows.length === 0) {
+      throw new NotFoundError("User not found");
+    }
 
     return result.rows[0];
   }
@@ -71,12 +80,16 @@ class UserRepository {
   async delete(id) {
     const result = await pool.query(
       `
-      DELETE FROM users
-      WHERE id = $1
-      RETURNING *;
-      `,
+    DELETE FROM users
+    WHERE id = $1
+    RETURNING *;
+    `,
       [id],
     );
+
+    if (result.rows.length === 0) {
+      throw new NotFoundError("User not found");
+    }
 
     return result.rows[0];
   }
